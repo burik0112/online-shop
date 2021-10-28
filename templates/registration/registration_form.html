@@ -1,0 +1,47 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div class="form-block mx-auto">
+        <div class="text-center mb-5">
+            <h3 class="text-uppercase">{% trans 'Registration' %}</h3>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group first">
+                <label for="username">{% trans 'Username' %}</label>
+                <input name="username" type="text" class="form-control" placeholder="Username" id="username">
+            </div>
+            <div class="form-group first">
+                <label for="username">{% trans 'E-mail' %}</label>
+                <input name="email" type="text" class="form-control" placeholder="your-email@gmail.com" id="username">
+            </div>
+            <div class="form-group last mb-3">
+                <label for="password">{% trans 'Password' %}</label>
+                <input name="password1" type="password" class="form-control" placeholder="Password" id="password">
+            </div>
+            <div class="form-group last mb-3">
+                <label for="password">{% trans 'Confirm Password' %}</label>
+                <input name="password2" type="password" class="form-control" placeholder="Confirm Password" id="password">
+            </div>
+
+            <div class="row my-3">
+                <div class="col-4">
+                    <a href="{% url 'auth_login' %}">
+                        <button type="button" class="btn btn-info w-100">Sign In</button>
+                    </a>
+                </div>
+                <div class="col-8">
+                    <button type="submit" class="btn btn-primary w-100">Sign up</button>
+                </div>
+            </div>
+            <div class="d-sm-flex my-2 align-items-center">
+                <span class="ml-auto">
+                    <a href="{% url 'pages:home' %}" class="forgot-pass">Back to web site</a>
+                </span>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}

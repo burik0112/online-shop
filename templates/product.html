@@ -1,0 +1,183 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Shop Details Section Begin -->
+<section class="shop-details">
+        <div class="product__details__pic">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__details__breadcrumb">
+                            <a href="{% url 'pages:home'%}">Home</a>
+                            <a href="{% url 'products:list'%}">Shop</a>
+                            <span>{{ object.title }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
+                                    <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/shop-details/thumb-1.png'%}">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
+                                    <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/shop-details/thumb-2.png'%}">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
+                                    <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/shop-details/thumb-3.png'%}">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
+                                    <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/shop-details/thumb-4.png'%}">
+                                        <i class="fa fa-play"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img src="{% static 'img/shop-details/product-big-2.png'%}" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img src="{% static 'img/shop-details/product-big-3.png'%}" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img src="{% static 'img/shop-details/product-big.png'%}" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-4" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img src="{% static 'img/shop-details/product-big-4.png'%}" alt="">
+                                    <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1" class="video-popup"><i class="fa fa-play"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product__details__content">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="product__details__text">
+                            <h4>{{ object.title}}</h4>
+                            <h3>
+                                ${{ object.get_price}} {% if object.is_discount %}<span> {{ object.price}}</span>{% endif%}
+                            </h3>
+                            <p>
+                                {{ object.short_description}}
+                            </p>
+                            <div class="product__details__cart__option">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
+                                </div>
+                                <a href="#" class="primary-btn">add to cart</a>
+                            </div>
+                            <div class="product__details__btns__option mb-1">
+                                <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
+                            </div>
+                            <div class="product__details__last__option">
+
+                                <ul class="pt-0">
+                                    <li>
+                                        <span>Categories:</span> {{ object.category.title}}
+                                    </li>
+                                    <li><span>Tag:</span> {%  for tag in object.tags.all%}{{ tag.title}}{% if not forloop.last%}, &nbsp;{% endif %}{% endfor%}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__details__tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tabs-5"
+                                    role="tab">Description</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-5" role="tabpanel">
+                                    <div class="product__details__tab__content">
+                                        {{object.long_description|safe}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Shop Details Section End -->
+
+<!-- Related Section Begin -->
+<section class="related spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="related-title">Related Products</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for products in related%}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{{object.image.url}}">
+                        {% if product.is_new%}
+                            <span class="label {% if object.is_discount%}mt-4{%endif%}">New</span>
+                        {% endif%}
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/icon/heart.png'%}" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/icon/search.png'%}" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>{{ object.title}}</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <h5>
+                            {{ object.get_price }}
+                            {% if object.is_discount%}
+                            <span class="small"><strike>${{ object.price}}</strike></span>
+                            {% endif%}
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Related Section End -->
+{% endblock%}

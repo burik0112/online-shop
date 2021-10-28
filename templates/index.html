@@ -1,0 +1,276 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section Begin -->
+<section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.jpg'%}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h3> Collections</h3>
+                            <h2>Sultan Jewellery</h2>
+                            <a href="{% url 'products:list' %}" class="primary-btn" style="margin-left:-10px">Shop now <span class="arrow_right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h3>Collections</h3>
+                            <h2>Sultan Jewellery</h2>
+                            <a href="{% url 'products:list' %}" class="primary-btn" style="margin-left:-10px">Shop now <span class="arrow_right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Banner Section Begin -->
+<section class="banner spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-4">
+                <div class="banner__item">
+                    <div class="banner__item__pic">
+                        <img src="{% static 'img/banner/banner-3.jpg'%}" alt="">
+                    </div>
+                    <a href="#">Shop now</a>
+                    <div class="banner__item__text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="banner__item banner__item--middle">
+                    <div class="banner__item__pic">
+                        <img src="{% static 'img/banner/banner-2.jpg'%}" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Ring for Women</h2>
+                        <a href="#">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->
+
+
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="filter__controls">
+                    <h2 class="active" style="margin-left:460px" data-filter="*">Best Sellers</h2>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row product__filter">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/product-1.jpg'%}">
+                        <span class="label">New</span>
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/icon/heart.png'%}" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/icon/search.png'%}" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>
+                            Piqué Biker Jacket
+                        </h6>
+                        <a href="#" class="add-cart">
+                            + Add To Cart
+                        </a>
+                        <h5>$67.24</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/product-2.jpg'%}">
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/icon/heart.png'%}" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/icon/search.png'%}" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>
+                            Piqué Biker Jacket
+                        </h6>
+                        <a href="#" class="add-cart">
+                            + Add To Cart
+                        </a>
+                        <h5>$67.24</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item sale">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/product-3.jpg'%}">
+                        <span class="label">Sale</span>
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/icon/heart.png'%}" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/icon/search.png'%}" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>Multi-pocket Chest Bag</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <h5>$43.48</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/product-4.jpg'%}">
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="{% static 'img/icon/heart.png'%}" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/search.png'%}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>Diagonal Textured Cap</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+
+                        <h5>$60.9</h5>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/product-5.jpg'%}">
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="{% static 'img/icon/heart.png'%}" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/search.png'%}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>Lether Backpack</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+
+                        <h5>$31.37</h5>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item sale">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/product-6.jpg'%}">
+                        <span class="label">Sale</span>
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="{% static 'img/icon/heart.png'%}" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/search.png'%}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>Ankle Boots</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <h5>$98.49</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/product-7.jpg'%}">
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="{% static 'img/icon/heart.png'%}" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/search.png'%}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>T-shirt Contrast Pocket</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+
+                        <h5>$49.66</h5>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/product-8.jpg'%}">
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="{% static 'img/icon/heart.png'%}" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/search.png'%}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>Basic Flowing Scarf</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <h5>$26.28</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->
+    <!-- Latest Blog Section Begin -->
+    <section class="latest spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Latest News</span>
+                        <h2>Fashion New Trends</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic set-bg" data-setbg="{{ post.image.url}}"></div>
+                        <div class="blog__item__text">
+                            <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>
+                            <h5>What Curling Irons Are The Best Ones</h5>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Blog Section End -->
+
+    <!-- Latest Blog Section Begin -->
+<!-- Latest Blog Section End -->
+{%endblock%}

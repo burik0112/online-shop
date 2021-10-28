@@ -1,0 +1,130 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block extra_css %}
+    <style>
+        a:hover {
+            cursor: pointer;
+        }
+
+        .a-active {
+            color: #111 !important;
+        }
+
+        .b-active {
+            color: white !important;
+            background-color: #111 !important;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Shop</h4>
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                {% include 'products_filter.html'%}
+            </div>
+            <div class="col-lg-9">
+                    <div class="shop__product__option">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="shop__product__option__left">
+                                    <p>Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="shop__product__option__right">
+                                    <p>Sort by Price:</p>
+                                    <select onchange="addUrlParameter('sort', this.value)">
+                                        <option value="">None</option>
+                                        <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">Low To High</option>
+                                        <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">High To Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    {% for product in object_list%}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item {% if product.is_discount%}sale{% endif%}" >
+                            <div class="product__item__pic set-bg" data-setbg="{{ product.image.url  }}">
+                                {% if product.is_discount%}
+                                    <span class="label">Sale</span>
+                                {% endif%}
+                                {% if product.is_new%}
+                                    <span class="label {% if product.is_discount%}mt-4{%endif%}">New</span>
+                                {% endif%}
+                                <ul class="product__hover">
+                                    <li>
+                                        <a href="#">
+                                            <img src="{% static 'img/icon/heart.png'%}" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'products:detail' pk=product.pk %}">
+                                            <img src="{% static 'img/icon/search.png'%}" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <h6>{{ product.title}}</h6>
+                                <a href="#" class="add-cart">+ Add To Cart</a>
+                                <h5>
+                                    {{ product.get_price }}
+                                    {% if product.is_discount%}
+                                        <span class="small"><strike>${{ product.price}}</strike></span>
+                                    {% endif%}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__pagination">
+                            {% for page in page_obj.paginator.page_range %}
+                                <a {% if page == page_obj.number %}class="active"{% endif %} href="?page={{page}}">{{page}} </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+{% endblock %}
+
+
+{% block extra_js%}
+    <script>
+        function addUrlParameter(name, value){
+            let searchParams = new UrlSearchParams(window.location.search)
+            searchParams.set( name, value)
+            window.location.search = searchParams.toString()
+        }
+    </script>
+{% endblock%}
+<!--{%  onclick="addUrlParameter('page', '{{ page }}')">{{ page }}-->
