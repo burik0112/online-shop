@@ -34,10 +34,9 @@ class BrandModel(models.Model):
     def __str__(self):
         return self.title
 
-
-class Meta:
-    verbose_name = 'brand'
-    verbose_name_plural = 'brands'
+    class Meta:
+        verbose_name = 'brand'
+        verbose_name_plural = 'brands'
 
 
 class ProductModel(models.Model):
@@ -73,8 +72,9 @@ class ProductModel(models.Model):
     def __str__(self):
         return self.title
 
-    verbose_name = 'product'
-    verbose_name_plural = 'products'
+    class Meta:
+        verbose_name = 'product'
+        verbose_name_plural = 'products'
 
 
 class SizeModel(models.Model):
